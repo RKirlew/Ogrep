@@ -22,7 +22,15 @@ fn open_file(file_to_open: String) -> std::io::Result<String> {
 fn main() {
     let args = Args::parse();
     match open_file(args.file) {
-        Ok(contents) => println!("{}", contents),
+        Ok(contents) => {
+            let line_with_query: Vec<&str> = contents
+                .lines()
+                .filter(|line| line.contains(&args.query))
+                .collect();
+            for v in line_with_query {
+                println!("{}", v);
+            }
+        }
         Err(e) => eprintln!("Error: {}", e),
     }
 }

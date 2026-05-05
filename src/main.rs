@@ -8,21 +8,11 @@ fn main() {
     let args = Args::parse();
     match file::read_to_string(&args.file) {
         Ok(contents) => {
-            if args.ignore_case {
-                let results = ogrep::search_ignore_case(&contents, &args.query); //Ignore case hello=Hello
-                for v in results {
-                    println!("{}", v);
-                }
-            } else if !args.ignore_case {
-                let results = ogrep::search_match_case(&contents, &args.query); // Base case Hello==Hello
-                for v in results {
-                    println!("{}", v);
-                }
-            } else if args.whole_word {
-                let results = ogrep::whole_word_search(&contents, &args.query);
-                for v in results {
-                    println!("{} ", v);
-                }
+            // Call the unified search function with all flags
+            let results = ogrep::search(&contents, &args.query, args.ignore_case, args.whole_word);
+
+            for line in results {
+                println!("{}", line);
             }
         }
         Err(e) => eprintln!("Error: {}", e),

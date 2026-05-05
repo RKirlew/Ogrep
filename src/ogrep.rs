@@ -1,19 +1,30 @@
-pub fn search_match_case<'a>(contents: &'a str, query: &str) -> Vec<&'a str> {
+pub fn search<'a>(
+    contents: &'a str,
+    query: &str,
+    ignore_case: bool,
+    whole_word: bool,
+) -> Vec<&'a str> {
+    let query_lower = query.to_lowercase();
+
     contents
         .lines()
-        .filter(|line| line.contains(query))
-        .collect()
-}
-pub fn search_ignore_case<'a>(contents: &'a str, query: &str) -> Vec<&'a str> {
-    let query = query.to_lowercase();
-    contents
-        .lines()
-        .filter(|line| line.to_lowercase().contains(&query))
-        .collect()
-}
-pub fn whole_word_search<'a>(contents: &'a str, query: &str) -> Vec<&'a str> {
-    contents
-        .split_whitespace()
-        .filter(|line| !line.contains(query))
+        .filter(|line| {
+            if whole_word {
+                // Handle Whole Word (with optional Case Insensitivity)
+                line.split(|c: char| !c.is_alphanumeric()).any(|word| {
+                    if ignore_case {
+                        word.to_lowercase() == query_lower
+                    } else {
+                        word == query
+                    }
+                })
+            } else if ignore_case {
+                // Handle Case Insensitive Substring
+                line.to_lowercase().contains(&query_lower)
+            } else {
+                // Handle Standard Substring
+                line.contains(query)
+            }
+        })
         .collect()
 }

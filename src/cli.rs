@@ -13,6 +13,6 @@ pub struct Args {
     #[arg(short = 'i', long = "ignore-case")]
     pub ignore_case: bool,
 
-    #[arg(short = 'w', long = "whole-word", default_value = "true")]
+    #[arg(short = 'w', long = "whole-word")]
     pub whole_word: bool,
 }

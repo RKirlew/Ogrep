@@ -1,8 +1,3 @@
-First test of ogrep
-This is another line
-How about another line
-Line
-Another search with Line
 The quick brown fox,
 Jumps over a lazy dog.
 The fox is quick, the dog is slow,

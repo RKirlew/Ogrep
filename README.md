@@ -17,7 +17,7 @@ Ogrep is a simple CLI search tool that mimics `grep`, built for learning Rust an
 ## 🛠️ TODO
 
 ### 🔎 Search improvements
-- Case-sensitive vs case-insensitive search  
+-<strike> Case-sensitive vs case-insensitive search </strike>
 - Whole-word matching vs substring matching  
 - Basic regex support  
 - Invert match (show lines that DON’T match)

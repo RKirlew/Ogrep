@@ -1,3 +1,3 @@
 # Ogrep
 grep but built for rusty swamps
-<img width="1280" height="1280" alt="image" src="https://github.com/user-attachments/assets/3f8629ed-fdfd-4050-80bf-2f176b9b802c" />
+<img width="559" height="559" alt="image" src="https://github.com/user-attachments/assets/b3addd3e-3794-4790-8595-dacc6a414549" />

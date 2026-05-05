@@ -8,6 +8,9 @@ use std::io::prelude::*;
 struct Args {
     #[arg(short, long)]
     file: String,
+
+    #[arg(short, long)]
+    query: String,
 }
 
 fn open_file(file_to_open: String) -> std::io::Result<String> {

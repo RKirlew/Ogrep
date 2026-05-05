@@ -9,4 +9,7 @@ pub struct Args {
 
     #[arg(short, long)]
     pub query: String,
+
+    #[arg(short = 'i', long = "ignore-case")]
+    pub ignore_case: bool,
 }

@@ -11,3 +11,9 @@ pub fn search_ignore_case<'a>(contents: &'a str, query: &str) -> Vec<&'a str> {
         .filter(|line| line.to_lowercase().contains(&query))
         .collect()
 }
+pub fn whole_word_search<'a>(contents: &'a str, query: &str) -> Vec<&'a str> {
+    contents
+        .split_whitespace()
+        .filter(|line| !line.contains(query))
+        .collect()
+}

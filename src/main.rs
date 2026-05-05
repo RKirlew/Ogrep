@@ -13,10 +13,15 @@ fn main() {
                 for v in results {
                     println!("{}", v);
                 }
-            } else {
+            } else if !args.ignore_case {
                 let results = ogrep::search_match_case(&contents, &args.query); // Base case Hello==Hello
                 for v in results {
                     println!("{}", v);
+                }
+            } else if args.whole_word {
+                let results = ogrep::whole_word_search(&contents, &args.query);
+                for v in results {
+                    println!("{} ", v);
                 }
             }
         }

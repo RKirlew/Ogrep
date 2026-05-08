@@ -15,4 +15,6 @@ pub struct Args {
 
     #[arg(short = 'w', long = "whole-word")]
     pub whole_word: bool,
+    #[arg(short = 'c', long = "count")]
+    pub count: bool,
 }
